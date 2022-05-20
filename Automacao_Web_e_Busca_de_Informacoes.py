@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 # Baixar o "chromedriver.exe" e colocar na mesma pasta onde esta instalado o python
-# Abrir um navegador
+# Abrir um navegador( nesse caso Chrome)
 navegador = webdriver.Chrome("chromedriver.exe")
 # navegador = webdriver.Chrome("chromedriver.exe") # -> quando o chromedriver estiver no mesmo local
 navegador.get("https://www.google.com.br/")
@@ -39,3 +39,26 @@ print(cotacao_euro)
 
 # Fechar o navegador
 navegador.quit()
+
+# Passo 4: Importar a lista de produtos
+import pandas as pd
+
+tabela = pd.read_excel("Produtos.xlsx")
+display(tabela)
+
+
+
+
+# Nas linhas onde na coluna "Moeda" = Dólar
+tabela.loc[tabela["Moeda"] == "Dólar", "Cotação"] = float(cotacao_dolar)
+tabela.loc[tabela["Moeda"] == "Euro", "Cotação"] = float(cotacao_euro)
+
+# Atualizar o preço base reais (preço base original * cotação)
+tabela["Preço de Compra"] = tabela["Preço Original"] * tabela["Cotação"]
+
+# Atualizar o preço final (preço base reais * Margem)
+tabela["Preço de Venda"] = tabela["Preço de Compra"] * tabela["Margem"]
+
+tabela["Preço de Venda"] = tabela["Preço de Venda"].map("R${:.2f}".format)
+
+display(tabela)
