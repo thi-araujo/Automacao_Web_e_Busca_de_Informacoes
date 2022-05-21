@@ -1,8 +1,8 @@
 # Automação Web e Busca de Informações com Python
 
-# !pip install selenium -> Quando for usar no Jupyter Notebook instalar com esse comando
+# !pip install selenium -> Quando for usar no Jupyter Notebook instalar selenium com esse comando
 
-# pip install selenium -> Quando usar  em uma IDE com Python instalar atraves desse comando pelo terminal
+# pip install selenium -> Quando usar  em uma IDE com Python instalar selenium atraves desse comando pelo terminal
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 # Baixar o "chromedriver.exe" e colocar na mesma pasta onde esta instalado o python
 # Abrir um navegador( nesse caso Chrome)
 navegador = webdriver.Chrome("chromedriver.exe")
-# navegador = webdriver.Chrome("chromedriver.exe") # -> quando o chromedriver estiver no mesmo local
+# navegador = webdriver.Chrome("chromedriver.exe") # -> Quando o chromedriver estiver no mesmo local
 navegador.get("https://www.google.com.br/")
 
 
