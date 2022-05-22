@@ -40,9 +40,9 @@ print(cotacao_euro)
 # Fechar o navegador
 navegador.quit()
 
-# Passo 4: Importar a lista de produtos
-import pandas as pd
+# Passo 4: Importar pandas para ler a base de dados
 
+# Importar lista de produtos(base de dados)
 tabela = pd.read_excel("Produtos.xlsx")
 display(tabela)
 
@@ -62,3 +62,5 @@ tabela["Preço de Venda"] = tabela["Preço de Compra"] * tabela["Margem"]
 tabela["Preço de Venda"] = tabela["Preço de Venda"].map("R${:.2f}".format)
 
 display(tabela)
+
+
