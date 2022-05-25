@@ -37,7 +37,7 @@ cotacao_euro = navegador.find_element(By.XPATH,
     '//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]').get_attribute("data-value")
 print(cotacao_euro)
 
-# Fechar o navegador
+# Fechar o Navegador Chrome
 navegador.quit()
 
 # Passo 4: Importar pandas para ler a base de dados
